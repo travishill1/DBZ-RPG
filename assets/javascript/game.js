@@ -1,5 +1,5 @@
 
-// We create a constructor as a template for all character objects.
+// We create a constructor as a template for all character objects to call upon during game initialization.
 class Hero {
 	constructor(name, health, baseAttack) {
 		this.name = name;
@@ -17,15 +17,15 @@ class Hero {
     }
 
     // subtracts current attackPower from health.
-    attack ( ) {
-        this.health -= this.attackPower;
+    attack (opponent) {
+        opponent.health -= this.attackPower;
     }
 
     // 
     round ( ) {
         
     }
-
+    // if health drops to 0 or below, then change isDead boolean to true.  Return this function so that we can apply other functions now to that object.
     checkDead ( ) {
         if (this.health <= 0) {
         this.isDead = true;
@@ -36,26 +36,51 @@ class Hero {
 
 }
 
-
+// game object where rounds, battles, checks, and win/lose conditions are settled.
 const game = { 
 
+    // determine if game initiation is outside or within the game object.
 Initiate : function ( ) {
-    Goku = new Hero("Goku", 150, 15);
-    Vegeta = new Hero("Vegeta", 130, 25);
-    Piccolo = new Hero("Piccolo", 170, 10);
-    Yajirobe = new Hero("Yajirobe", 250, 50);
+    this.characters = [
+        Goku = new Hero("Goku", 150, 15),
+        Vegeta = new Hero("Vegeta", 130, 25),
+        Piccolo = new Hero("Piccolo", 170, 10),
+        Yajirobe = new Hero("Yajirobe", 250, 50),
+    ]
 },
 
 Round : function ( ) {
     player.attack(defender);
     player.powerUp();
     defender.attack(player);
-    if (defender.checkDead()) {
+    if (player.checkDead()) {
         game.Lose ()
-    }
+    };
+    if (defender.checkDead()) {
+        game.battleWin ()
+    };
+},
+
+CheckBattleEnd : function ( ) {
+    if 
+},
+
+// need game win, battle win, and battle loss.  no game loss because === battle loss.
+
+battleWin : function ( ) {
+
+},
+
+Lose : function ( ) {
+
+},
+
+Win : function ( ) {
+
 },
 
 Battle : function ( ) {
 
 }
 }
+game.play()
