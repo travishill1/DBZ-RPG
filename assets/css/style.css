@@ -27,7 +27,7 @@ h1 {
 h2 {
     margin: auto;
     background-color: orange;
-    padding: 10px 10px 10px 10px;
+    padding: 10px 15px 10px 15px;
 }
 
 
@@ -59,8 +59,9 @@ p {
 margin: auto;
 }
 
-html { 
+#arena { 
     background: url(../images/background-image.jpg) no-repeat center center fixed; 
+    min-height: 500px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

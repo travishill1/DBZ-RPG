@@ -46,11 +46,14 @@ class Hero {
     // subtracts current attackPower from health.
     attack (opponent) {
         opponent.health -= this.attackPower;
+        if (opponent.health <= 0) {
+            opponent.health = 0;
+        }
     }
 
     // 
    
-    // if health drops to 0 or below, then change isDead boolean to true.  Return this function so that we can apply other functions now to that object.
+    // if health drops to 0 or below, then change isDead boolean to true.  Return this function so that we can apply other functions to object.
     checkDead ( ) {
         if (this.health <= 0) {
         this.isDead = true;
@@ -73,9 +76,9 @@ initiate : function () {
 
     game.characters = [
         new Hero("Goku", 150, 15),
-        new Hero("Vegeta", 130, 25),
+        new Hero("Vegeta", 120, 25),
         new Hero("Piccolo", 170, 10),
-        new Hero("Yajirobe", 250, 50),
+        new Hero("Yajirobe", 200, 6),
     ],
 
     game.needDefender = true;
@@ -203,11 +206,12 @@ winGame : function(){
 
 resetGame : function(){
     for (let character of game.characters){
-        character.card.off("click");
+        character.card.remove();
     }
 
     $("#attack-button").off("click");
-    game.player.card.remove();
+    // game.player.card.remove();
+    // game.defender.card.remove();
     game.player = null;
     $("#reset-button").remove();
 }
