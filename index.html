@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+        <!-- <body background="assets/images/background-image.jpg"> -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +13,77 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
 
-
-
 </head>
 <body>
-<div class = "container">
-    <div class="row text-center" id="lobby-area">
-        <p>lobby-area</p>
-    </div>
+        
+<div class = "container mainBox">
 
-    <div class="row text-center" id="player-area">
-        <p>player-area</p>
+    <div class = "row">
+        <h1>Dragon Ball Z RPG</h1>
     </div>
-
-    <div class="row text-center" id="enemy-area">
-        <p>enemy-area</p>
+    <div class = "row">
+        <img id="shenronPic" src="assets/images/shenron.png">
     </div>
-
-    <div class="row text-center" id="defender-area">
-        <p>defender-area</p>
-    </div>
-
-    <div class="text-center">
-        <button class="btn btn-dark btn-lg attack-button">
-          <span class="fa fa-ok"></span>Attack</button>
+    
+    <div id="musicControls" class="text-center">
+            <button class="btn btn-warning btn-xs theme-button">
+              <span class="fa fa-music"></span> Play Theme!</button>
+            <button class="btn btn-dark btn-xs pause-button">
+              <span class="fa fa-pause"></span> Pause Song</button>
           </div>
+
+    <div class="row">
+
+    <div class="row col-5">
+        <h2>Your Character</h2>
+    </div>
+
+    <div class="col-2">
+
+    </div>
+
+    <div class="row col-5">
+        <h2>Your Enemy</h2>
+    </div>
+
+    </div>
+
+
+    <div class="row">
+    <div class="row col-5" id="player-area">
+        </div>
+    <div class="text-center col-2">
+                <button class="btn btn-dark btn-lg" id="attack-button">Attack</button>
+        </div>
+    <div class="row col-5" id="defender-area">
+        </div>
+    </div>
+
+<div class="row">
+<br>
+<br>
+</div>
+
+    <div class="row characterSelection">
+        <h2>Pick Your Character!</h2>
+    </div>
+    <div class="row text-center" id="lobby-area">
+        </div>
+
+    <div class="row" id="message">
+        
+        </div>
+
+        <div class = "row">
+        <h2>Enemies Available to Attack</h2>
+        </div>
+    <div class="row text-center" id="enemy-area">
+        </div>
+
 </div>
 
 
 </body>
+
 <script src="assets/javascript/game.js"></script>
 </html>
