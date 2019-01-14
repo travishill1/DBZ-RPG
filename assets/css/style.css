@@ -5,3 +5,27 @@
 .player {
     background-color: green;
 }
+
+.cardImage {
+    width: 300px;
+    height: 250px;
+}
+
+.attack-button {
+    float: left;
+}
+
+.hp {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+}
+
+.nameText {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+}
