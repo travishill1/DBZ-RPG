@@ -16,13 +16,14 @@
  // We create a constructor as a template for all character objects to call upon during game initialization.
 class Hero {
 	constructor(name, health, baseAttack) {
-		this.name = name;
+	    this.name = name;
         this.health = health;
         this.baseAttack = baseAttack;
-		this.attackPower = baseAttack;
+        this.attackPower = baseAttack;
+        this.isDead = false;
 		// this.isPlayer = false;
         // this.isDefender = false;
-        this.isDead = false;
+        
 
         
         let imageURL = "assets/images/" + this.name + ".jpg";
@@ -75,16 +76,17 @@ const game = {
 initiate : function () {
 
     game.characters = [
-        new Hero("Goku", 150, 15),
-        new Hero("Vegeta", 120, 25),
-        new Hero("Piccolo", 170, 10),
-        new Hero("Yajirobe", 200, 6),
+        new Hero("Goku", 120, 20),
+        new Hero("Vegeta", 100, 25),
+        new Hero("Piccolo", 150, 15),
+        new Hero("Yajirobe", 180, 7),
     ],
 
     game.needDefender = true;
     game.needPlayer = true;
     game.addListeners();
     $("#message").empty();
+    game.winCount = 0;
     
     $("#attack-button").on("click", function() {
         if (!game.needPlayer & !game.needDefender){
@@ -175,11 +177,16 @@ round : function(){
 // **************************
 
 
-// need game win, battle win, and battle loss.  no game loss because === battle loss.
+// need game win, battle win, and battle loss.  no battle loss because = game loss.
+// our win game condition is an if statement requiring that the win counter is the same as the amount of characters minus 1 (the player character doesn't count).
 battleWin : function(){
 game.defender.card.remove();
 game.defender = null;
 game.needDefender = true;
+game.winCount += 1;
+if (game.winCount == game.characters.length - 1){
+    game.winGame();
+}
 },
 
 createButton : function(){
@@ -195,11 +202,13 @@ createButton : function(){
 },
 
 loseGame : function(){
+    $("#attack-button").off("click");
     $("#message").append("<h2>You Lose!</h2>")
     $("#message").append(game.createButton());
 },
 
 winGame : function(){
+    $("#attack-button").off("click");
     $("#message").append("<h2>You Win!</h2>")
     $("#message").append(game.createButton());
 },
